@@ -1,17 +1,36 @@
 @use '../1-abstracts/functions' as fun;
+@use '../1-abstracts/colors';
 
 .subscription {
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
 
-    input, .btn {
+    .email, .btn {
         width: var(--mb-btn-input-width);
+    }
+
+    input, .btn {
         height: var(--mb-btn-input-height);
     }
 
     input {                
         padding-left: fun.toRem(16px);
+        width: 100%;
+        border-radius: var(--btn-input-border-radius);
+        border: 2px solid colors.$light-gray;
+    }
+
+    .error-msg {
+        max-height: 0;
+        overflow: hidden;
+        margin-top: fun.toRem(5px);
+        opacity: 0.6;
+        transition: max-height var(--transition) ease-in-out;
+    }
+
+    input:invalid ~ .error-msg{
+        max-height: fun.toRem(20px);
     }
 
     .btn {

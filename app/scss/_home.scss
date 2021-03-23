@@ -17,6 +17,7 @@ html {
     --mb-btn-input-height: #{fun.toRem(42px)};
     --mb-btn-input-width: 81%;
     --btn-input-border-radius: #{fun.toRem(3px)};
+    --transition: 200ms;
 }
 
 body {

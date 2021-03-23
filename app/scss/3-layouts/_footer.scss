@@ -49,11 +49,16 @@
                 display: flex;
                 flex-flow: row wrap;
 
+                a {
+                    display: block;
+                }
+
                 .link-group {
                     width: 100%;
                     margin-top: fun.toRem(60px);
 
                     .link{
+                        width: 100%;
                         &:not(:first-child) {
                             margin-top: fun.toRem(20px);
                         }
@@ -74,6 +79,7 @@
                     border: 1px solid white;
                     border-radius: 50%;
                     padding: fun.toRem(6px);
+                    transition: border-color var(--transition) ease-in-out;
                     
                     &:not(:first-child) {
                         margin-left: fun.toRem(10px);
@@ -82,6 +88,16 @@
                     svg {
                         width: 100%;
                         height: 100%;
+                        path{
+                            transition: fill var(--transition) ease-in-out;
+                        }
+                    }
+
+                    &:hover {
+                        border-color: colors.$bright-blue;
+                        path {
+                            fill: colors.$bright-blue;
+                        }
                     }
                 }
             }

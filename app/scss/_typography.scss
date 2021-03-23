@@ -38,9 +38,11 @@ h2 {
 
 a {
     color: colors.$very-dark-blue;
+    transition: filter var(--transition) ease-in-out, color var(--transition) ease-in-out;
     
     &:hover {
         color: colors.$bright-blue;
+        filter: brightness(1.4);
     }
 }
 
@@ -91,6 +93,25 @@ input {
 
 }
 
+.subscription {
+    input {
+
+        &::placeholder {
+            opacity: 0.3;
+            font-size: fonts.$size-xxsm;    
+        }
+    }
+
+    .error-msg {
+        font-size: fonts.$size-xxsm;
+        color: red;
+    }
+
+    .btn {
+        font-size: fonts.$size-xxsm;
+    }
+}
+
 .subscribe {    
     h2, p {
         color: white;
@@ -101,22 +122,21 @@ input {
         line-height: 1.5em;
     }
 
-    input {
-
-        &::placeholder {
-            opacity: 0.3;
-            font-size: fonts.$size-xxsm;    
-        }
+    .error-msg {
+        color: white;
     }
-
-    .btn {
-        font-size: fonts.$size-xxsm;
-    }
-    
 }
 
 .footer {
     color: white;
     font-size: fonts.$size-xsm;
+
+    a {
+        color: white;
+
+        &:hover {
+            color: colors.$bright-blue;
+        }
+    }
 }
 
