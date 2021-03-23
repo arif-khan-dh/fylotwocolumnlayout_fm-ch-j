@@ -1,0 +1,32 @@
+@use '../1-abstracts/functions' as fun;
+@use '../1-abstracts/colors';
+
+.subscribe {
+    background-color:  colors.$desaturated-blue;
+    height: fun.toRem(344px);
+    display: flex;
+    flex-flow: column nowrap;
+
+    .main {
+        margin-top: auto;
+        margin-bottom: fun.toRem(22px);
+
+        h2 {
+            margin-bottom: fun.toRem(22px);
+        }
+
+        p {
+            margin: 0 auto;
+            width: fun.toRem(300px);
+        }
+    }
+
+    .subscription {
+        margin: 0 auto auto;
+        width: fun.toRem(242px);
+
+        .btn {
+            box-shadow: none;
+        }
+    }
+}

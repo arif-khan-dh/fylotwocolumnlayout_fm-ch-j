@@ -1,0 +1,7 @@
+@use '../1-abstracts/functions' as fun;
+
+.header {
+    padding-top: fun.toRem(24px);
+    // width: 87.2%;
+    display: flex;
+}

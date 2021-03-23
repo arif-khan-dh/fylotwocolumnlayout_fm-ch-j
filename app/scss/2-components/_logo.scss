@@ -1,0 +1,11 @@
+@use '../1-abstracts/functions' as fun;
+
+.logo {
+    // width: 23%;
+    width: fun.toRem(82px);
+    margin-left: fun.toRem(24px);
+
+    img {
+        width: 100%;
+    }
+}

@@ -1,0 +1,12 @@
+@use '../1-abstracts/mixins';
+@use '../1-abstracts/functions' as fun;
+
+.card {
+    background-color: white;
+    
+    border-radius: var(--btn-input-border-radius);
+    @include mixins.box-shadow();
+    background-image: url(../../../images/icon-quotes.svg) ;
+    background-repeat: no-repeat;
+    background-position: top 12% left 9%;
+}

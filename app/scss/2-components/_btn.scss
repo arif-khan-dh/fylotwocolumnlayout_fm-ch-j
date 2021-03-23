@@ -1,0 +1,13 @@
+@use '../1-abstracts/functions' as fun;
+@use '../1-abstracts/colors';
+
+.btn {
+    background-color: colors.$bright-blue;
+    // height: fun.toRem(42px);
+    height: var(--mb-btn-input-height);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: var(--btn-input-border-radius);
+    box-shadow: 0 fun.toRem(5px) fun.toRem(5px) rgba($color: colors.$light-gray, $alpha: 0.7) ;
+}

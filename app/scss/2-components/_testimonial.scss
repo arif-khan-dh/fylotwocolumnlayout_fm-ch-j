@@ -1,0 +1,40 @@
+@use '../1-abstracts/functions' as fun;
+
+.testimonial {
+    margin: 0 auto fun.toRem(84px);
+    width: fun.toRem(286px);
+    height: fun.toRem(168px);
+    display: flex;
+    flex-flow: column nowrap;
+    // padding: fun.toRem(46px) fun.toRem(22px) fun.toRem(22px) fun.toRem(26px);
+    padding: 0 fun.toRem(22px) 0 fun.toRem(26px);
+
+    p {
+        margin: auto 0 fun.toRem(12px) 0;
+    }
+
+    .info {
+        display: flex;
+        flex-flow: column wrap;
+        align-content: flex-start;
+        justify-content: center;
+        height: fun.toRem(36px);
+        margin-bottom: fun.toRem(22px);
+
+        span{
+            display: block;
+            
+        }
+
+        .profile-pic {
+            width: fun.toRem(26px);
+            height: fun.toRem(26px);
+            margin-right: fun.toRem(20px);
+
+            img {
+                border-radius: 50%;
+                width: 100%;
+            }
+        }
+    }
+}

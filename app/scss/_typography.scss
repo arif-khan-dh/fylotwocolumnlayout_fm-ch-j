@@ -1,0 +1,122 @@
+@use './1-abstracts/fonts';
+@use './1-abstracts/colors';
+@use './1-abstracts/functions' as fun;
+
+:root {
+
+}
+
+body {
+    font-family: fonts.$font-opensans;
+}
+
+h1, h2, .cta .btn, .navbar {
+    font-family: fonts.$font-raleway, sans-serif;
+}
+
+h1, h2, p, .btn {
+    text-align: center;
+}
+
+.feature .text  > p {
+    text-align: left;
+}
+
+h1, h2, p {
+    color: colors.$very-dark-blue;
+}
+
+h1 {
+    font-size: fonts.$size-xlg;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: fonts.$size-md;
+    font-weight: 700;
+}
+
+a {
+    color: colors.$very-dark-blue;
+    
+    &:hover {
+        color: colors.$bright-blue;
+    }
+}
+
+input {
+    font-size: fonts.$size-sm;    
+}
+
+.btn {
+    cursor: pointer;
+    color: colors.$light-grayish-blue;
+    font-weight: 700;
+    font-size: fonts.$size-xsm;
+}
+
+.navbar {
+    font-size: fonts.$size-xxsm;
+}
+
+.text {
+
+    p {
+        color: colors.$desaturated-blue;
+        font-size: fonts.$size-xsm;
+    }
+
+    a {
+        color: colors.$moderate-cyan;
+        // text-decoration: ;
+        // text-underline-offset: fun.toRem(10px);
+    }
+}
+
+.card p {
+    font-size: fonts.$size-xxxsm;
+    text-align: left;
+    line-height: 1.5em;
+}
+
+.testimonial {
+    .name {
+        font-weight: 700;
+        font-size: fonts.$size-xsm;
+    }
+
+    .role {
+        font-size: fonts.$size-xxsm;
+    }
+
+}
+
+.subscribe {    
+    h2, p {
+        color: white;
+    }
+
+    p {
+        font-size: fonts.$size-xsm;
+        line-height: 1.5em;
+    }
+
+    input {
+
+        &::placeholder {
+            opacity: 0.3;
+            font-size: fonts.$size-xxsm;    
+        }
+    }
+
+    .btn {
+        font-size: fonts.$size-xxsm;
+    }
+    
+}
+
+.footer {
+    color: white;
+    font-size: fonts.$size-xsm;
+}
+

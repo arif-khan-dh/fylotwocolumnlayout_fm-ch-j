@@ -1,17 +1,386 @@
 @import url(https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap);
 @import url(https://fonts.googleapis.com/css2?family=Open+Sans&family=Raleway:wght@400;700&display=swap);
+body {
+  font-family: "Open Sans";
+}
+
+h1, h2, .cta .btn, .navbar {
+  font-family: "Raleway", sans-serif;
+}
+
+h1, h2, p, .btn {
+  text-align: center;
+}
+
+.feature .text > p {
+  text-align: left;
+}
+
+h1, h2, p {
+  color: #070439;
+}
+
+h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+a {
+  color: #070439;
+}
+a:hover {
+  color: #3065f8;
+}
+
+input {
+  font-size: 1rem;
+}
+
+.btn {
+  cursor: pointer;
+  color: #f6f6fe;
+  font-weight: 700;
+  font-size: 0.875rem;
+}
+
+.navbar {
+  font-size: 0.75rem;
+}
+
+.text p {
+  color: #585989;
+  font-size: 0.875rem;
+}
+.text a {
+  color: #3c9f8f;
+}
+
+.card p {
+  font-size: 0.625rem;
+  text-align: left;
+  line-height: 1.5em;
+}
+
+.testimonial .name {
+  font-weight: 700;
+  font-size: 0.875rem;
+}
+.testimonial .role {
+  font-size: 0.75rem;
+}
+
+.subscribe h2, .subscribe p {
+  color: white;
+}
+.subscribe p {
+  font-size: 0.875rem;
+  line-height: 1.5em;
+}
+.subscribe input::placeholder {
+  opacity: 0.3;
+  font-size: 0.75rem;
+}
+.subscribe .btn {
+  font-size: 0.75rem;
+}
+
+.footer {
+  color: white;
+  font-size: 0.875rem;
+}
+
 html {
   box-sizing: border-box;
+  font-size: 100%;
 }
 
 *, *::before, *::after {
   box-sizing: inherit;
 }
 
+:root {
+  --mb-btn-input-height: 2.625rem;
+  --mb-btn-input-width: 81%;
+  --btn-input-border-radius: 0.1875rem;
+}
+
 body {
   margin: 0;
   padding: 0;
   min-height: 100vh;
+  background-color: gray;
+  display: flex;
+  justify-content: center;
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+h1, h2, p {
+  margin: 0;
+}
+
+img, input {
+  display: block;
+}
+
+.container {
+  min-width: 23.4375rem;
+  background-color: white;
+  font-size: 1rem;
+  width: 23.4375rem;
+}
+
+.illustration {
+  margin: auto;
+  width: 74%;
+}
+.illustration img {
+  width: 100%;
+}
+
+.logo {
+  width: 5.125rem;
+  margin-left: 1.5rem;
+}
+.logo img {
+  width: 100%;
+}
+
+.btn {
+  background-color: #3065f8;
+  height: var(--mb-btn-input-height);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: var(--btn-input-border-radius);
+  box-shadow: 0 0.3125rem 0.3125rem rgba(191, 191, 191, 0.7);
+}
+
+.card {
+  background-color: white;
+  border-radius: var(--btn-input-border-radius);
+  box-shadow: 0 0.3125rem 0.3125rem rgba(191, 191, 191, 0.7);
+  background-image: url(../../../images/icon-quotes.svg);
+  background-repeat: no-repeat;
+  background-position: top 12% left 9%;
+}
+
+.testimonial {
+  margin: 0 auto 5.25rem;
+  width: 17.875rem;
+  height: 10.5rem;
+  display: flex;
+  flex-flow: column nowrap;
+  padding: 0 1.375rem 0 1.625rem;
+}
+.testimonial p {
+  margin: auto 0 0.75rem 0;
+}
+.testimonial .info {
+  display: flex;
+  flex-flow: column wrap;
+  align-content: flex-start;
+  justify-content: center;
+  height: 2.25rem;
+  margin-bottom: 1.375rem;
+}
+.testimonial .info span {
+  display: block;
+}
+.testimonial .info .profile-pic {
+  width: 1.625rem;
+  height: 1.625rem;
+  margin-right: 1.25rem;
+}
+.testimonial .info .profile-pic img {
+  border-radius: 50%;
+  width: 100%;
+}
+
+.subscription {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+.subscription input, .subscription .btn {
+  width: var(--mb-btn-input-width);
+  height: var(--mb-btn-input-height);
+}
+.subscription input {
+  padding-left: 1rem;
+}
+.subscription .btn {
+  margin-top: 0.875rem;
+}
+
+.navbar {
+  margin: auto 0 auto auto;
+}
+.navbar a {
+  margin-right: 1.5rem;
+}
+
+.header {
+  padding-top: 1.5rem;
+  display: flex;
+}
+
+.hero {
+  height: 44.25rem;
+  display: flex;
+  flex-flow: column nowrap;
+}
+.hero .cta h1 {
+  width: 90%;
+  margin: 0 auto 1.875rem;
+}
+.hero .cta p {
+  width: 85%;
+  margin: 0 auto 2rem;
+}
+
+.feature {
+  height: 65.625rem;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  background: url(../../../images/bg-curve-mobile.svg) top 10% left/100% 6% no-repeat, linear-gradient(white 15%, #F9F8FE 15%, #F9F8FE);
+}
+.feature .text {
+  margin-bottom: 2.5rem;
+}
+.feature .text h2 {
+  margin-bottom: 1.75rem;
+}
+.feature .text p {
+  margin: 0 1.25rem;
+}
+.feature .text p:nth-child(2) {
+  margin-bottom: 1.5rem;
+}
+.feature .text p:nth-child(3) {
+  margin-bottom: 2.5rem;
+}
+.feature .text .link {
+  margin: 0 auto;
+  text-align: center;
+  border-bottom: 1px solid #3c9f8f;
+  width: max-content;
+  padding-right: 22px;
+  padding-bottom: 5px;
+}
+.feature .text .link a {
+  position: relative;
+}
+.feature .text .link a::after {
+  content: url(../../../images/icon-arrow.svg);
+  position: absolute;
+  top: 20%;
+  right: -25px;
+}
+
+.subscribe {
+  background-color: #585989;
+  height: 21.5rem;
+  display: flex;
+  flex-flow: column nowrap;
+}
+.subscribe .main {
+  margin-top: auto;
+  margin-bottom: 1.375rem;
+}
+.subscribe .main h2 {
+  margin-bottom: 1.375rem;
+}
+.subscribe .main p {
+  margin: 0 auto;
+  width: 18.75rem;
+}
+.subscribe .subscription {
+  margin: 0 auto auto;
+  width: 15.125rem;
+}
+.subscribe .subscription .btn {
+  box-shadow: none;
+}
+
+.footer {
+  height: 42.625rem;
+  background-color: #070439;
+  display: flex;
+}
+.footer .footer-content {
+  margin: auto 0 auto 2.5rem;
+  width: 100%;
+}
+.footer .footer-content .logo {
+  width: 48%;
+  margin-left: 0;
+}
+.footer .footer-content .logo img {
+  width: 100%;
+}
+.footer .footer-content .sub-logo {
+  margin-top: 2.5rem;
+  display: flex;
+  flex-flow: column nowrap;
+}
+.footer .footer-content .sub-logo .contact {
+  --icon-gap: 1.25rem;
+}
+.footer .footer-content .sub-logo .contact .icon {
+  display: inline-block;
+  width: var(--icon-gap);
+  margin-right: var(--icon-gap);
+}
+.footer .footer-content .sub-logo .contact .icon img {
+  width: 100%;
+}
+.footer .footer-content .sub-logo .contact .phone, .footer .footer-content .sub-logo .contact .email {
+  display: flex;
+}
+.footer .footer-content .sub-logo .contact .phone:last-child, .footer .footer-content .sub-logo .contact .email:last-child {
+  margin-top: var(--icon-gap);
+}
+.footer .footer-content .sub-logo .links {
+  display: flex;
+  flex-flow: row wrap;
+}
+.footer .footer-content .sub-logo .links .link-group {
+  width: 100%;
+  margin-top: 3.75rem;
+}
+.footer .footer-content .sub-logo .links .link-group .link:not(:first-child) {
+  margin-top: 1.25rem;
+}
+.footer .footer-content .sub-logo .socials {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  margin: 3rem 2.5rem 0 0;
+}
+.footer .footer-content .sub-logo .socials .social {
+  --social-dimen: 1.75rem;
+  width: var(--social-dimen);
+  height: var(--social-dimen);
+  border: 1px solid white;
+  border-radius: 50%;
+  padding: 0.375rem;
+}
+.footer .footer-content .sub-logo .socials .social:not(:first-child) {
+  margin-left: 0.625rem;
+}
+.footer .footer-content .sub-logo .socials .social svg {
+  width: 100%;
+  height: 100%;
 }
 
 /*# sourceMappingURL=styles.css.map */

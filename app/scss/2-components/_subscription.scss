@@ -1,0 +1,20 @@
+@use '../1-abstracts/functions' as fun;
+
+.subscription {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+
+    input, .btn {
+        width: var(--mb-btn-input-width);
+        height: var(--mb-btn-input-height);
+    }
+
+    input {                
+        padding-left: fun.toRem(16px);
+    }
+
+    .btn {
+        margin-top: fun.toRem(14px);
+    }
+}

@@ -1,0 +1,58 @@
+@use '../1-abstracts/functions' as fun;
+@use '../1-abstracts/colors';
+
+.feature {
+    height: fun.toRem(1050px);
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+
+    background: 
+        url(../../../images/bg-curve-mobile.svg) top  10% left  / 100% 6% no-repeat,
+        // linear-gradient(white 15%, colors.$light-grayish-blue 15%, colors.$light-grayish-blue)
+        linear-gradient(white 15%, colors.$very-light-blue 15%, colors.$very-light-blue)
+    ;
+
+    .text {
+        margin-bottom: fun.toRem(40px);
+        
+        h2 {
+            margin-bottom: fun.toRem(28px);;
+        }
+
+        p {
+            margin: 0 fun.toRem(20px);
+
+            &:nth-child(2) {
+                margin-bottom: fun.toRem(24px);
+            }
+
+            &:nth-child(3) {
+                margin-bottom: fun.toRem(40px);
+            }
+        }
+
+        .link {
+            margin: 0 auto;
+            text-align: center;
+            border-bottom: 1px solid colors.$moderate-cyan;
+            width: max-content;
+            padding-right: 22px;
+            padding-bottom: 5px;
+
+            a {
+                position: relative;
+    
+                &::after {
+                    content: url(../../../images/icon-arrow.svg);
+                    position: absolute;
+                    top: 20%;
+                    right: -25px;
+                }
+            }
+        }
+
+
+
+    }
+}

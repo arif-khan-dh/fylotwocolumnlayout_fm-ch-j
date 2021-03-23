@@ -1,0 +1,23 @@
+@use '../1-abstracts/functions' as fun;
+@use '../1-abstracts/colors';
+
+.hero {
+    height: fun.toRem(708px);
+    display: flex;
+    flex-flow: column nowrap;
+    // justify-content: center;
+    // align-items: center;
+
+    .cta {
+
+        h1 {
+            width: 90%;
+            margin: 0 auto fun.toRem(30px);
+        }
+        
+        p {
+            width: 85%;
+            margin: 0 auto fun.toRem(32px);
+        }
+    }
+}
