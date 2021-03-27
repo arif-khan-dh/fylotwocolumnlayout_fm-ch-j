@@ -1,15 +1,13 @@
 @use '../1-abstracts/functions' as fun;
 
 .testimonial {
-    margin: 0 auto fun.toRem(84px);
-    width: fun.toRem(286px);
-    height: fun.toRem(168px);
+    width: var(--testimonial-width);
+    height: var(--testimonial-height);
     display: flex;
     flex-flow: column nowrap;
-    // padding: fun.toRem(46px) fun.toRem(22px) fun.toRem(22px) fun.toRem(26px);
     padding: 0 fun.toRem(22px) 0 fun.toRem(26px);
 
-    p {
+    p.quote {
         margin: auto 0 fun.toRem(12px) 0;
     }
 

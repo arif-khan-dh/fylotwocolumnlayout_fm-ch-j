@@ -1,5 +1,6 @@
 @use '../1-abstracts/functions' as fun;
 @use '../1-abstracts/colors';
+@use '../1-abstracts/mixins';
 
 .subscription {
     display: flex;
@@ -8,7 +9,9 @@
 
     .email, .btn {
         width: var(--mb-btn-input-width);
+        max-width: var(--mb-btn-input-width-max);
     }
+
 
     input, .btn {
         height: var(--mb-btn-input-height);
@@ -19,6 +22,16 @@
         width: 100%;
         border-radius: var(--btn-input-border-radius);
         border: 2px solid colors.$light-gray;
+
+        &:focus {
+            border: 2px solid colors.$bright-blue;
+            outline: none;
+        }
+
+        &:focus:invalid, &:invalid {
+            border: 2px solid red;
+            outline: none;
+        }
     }
 
     .error-msg {
@@ -34,6 +47,21 @@
     }
 
     .btn {
-        margin-top: fun.toRem(14px);
+        --margin-top: #{fun.toRem(14px)};
+        margin-top: var(--margin-top);
+
+        @include mixins.breakpoint-up(medium) {
+            width: calc(var(--mb-btn-input-width-max) / 2.2);
+            margin-top: 0;
+            margin-left: fun.toRem(10px);
+        }
+
+        @include mixins.breakpoint-up(large) {
+            width: var(--mb-btn-input-width);
+            margin-top: var(--margin-top);
+            margin-left: 0;
+        }
     }
+
+    // @include mixins.dynamic-width(xxlarge);
 }

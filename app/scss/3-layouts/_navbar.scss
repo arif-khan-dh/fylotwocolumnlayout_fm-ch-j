@@ -2,9 +2,13 @@
 @use '../1-abstracts/functions' as fun;
 
 .navbar {
-    margin: auto 0 auto auto;    
+    margin: auto 0 auto auto;
 
     a {
         margin-right: fun.toRem(24px);
+
+        &:last-child {
+            margin-right: 0;
+        }
     }
 }

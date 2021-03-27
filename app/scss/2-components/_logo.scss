@@ -1,9 +1,11 @@
 @use '../1-abstracts/functions' as fun;
+@use '../1-abstracts/mixins';
 
 .logo {
-    // width: 23%;
-    width: fun.toRem(82px);
-    margin-left: fun.toRem(24px);
+    width: 23%;
+    min-width: fun.toRem(82px);
+    max-width: fun.toRem(125px);
+    // margin-left: fun.toRem(24px);
 
     img {
         width: 100%;

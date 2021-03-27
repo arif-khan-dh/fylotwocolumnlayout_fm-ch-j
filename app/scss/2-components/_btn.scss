@@ -12,7 +12,7 @@
     box-shadow: 0 fun.toRem(5px) fun.toRem(5px) rgba($color: colors.$light-gray, $alpha: 0.7) ;
     transition: filter var(--transition) ease-in-out;
 
-    &:hover {
+    &:hover, &:focus {
         filter: brightness(1.3);
     }
 

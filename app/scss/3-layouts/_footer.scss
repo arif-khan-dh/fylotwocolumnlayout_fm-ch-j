@@ -1,103 +1,162 @@
 @use '../1-abstracts/functions' as fun;
 @use '../1-abstracts/colors';
+@use '../1-abstracts/mixins';
+
+.footer-wrapper {   
+    background-color: colors.$very-dark-blue;
+    @include mixins.widen();
+}
 
 .footer {
-    height: fun.toRem(682px);
-    background-color: colors.$very-dark-blue;
+    height: fun.toRem(682px); 
     display: flex;
+    flex-flow: column nowrap;
+    padding-left: fun.toRem(20px);
+    
 
-    .footer-content {
-        margin: auto 0 auto fun.toRem(40px);
-        width: 100%;
+    @include mixins.breakpoint-up(large) {
+        height: fun.toRem(400px);
+        padding-left: 0;
+    }
 
-        .logo {
-            width: 48%;
-            margin-left: 0;
+    .logo {
+        --margin-top: #{fun.toRem(66px)};
+        width: 48%;
+        max-width: fun.toRem(170px);
+        margin-top: var(--margin-top);
 
-            img {
-                width: 100%;
+        @include mixins.breakpoint-up(small) {
+            margin: var(--margin-top) auto 0;
+        }
+
+        @include mixins.breakpoint-up(large) {
+            margin: var(--margin-top) auto 0 0;
+        }
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .sub-logo {
+        margin-top: fun.toRem(36px);
+        display: flex;
+        flex-flow: column nowrap;
+
+        @include mixins.breakpoint-up(small) {
+            align-items: center;
+        }
+
+        @include mixins.breakpoint-up(large) {
+            flex-flow: row nowrap;
+            align-items: flex-start;
+
+            & > div {
+                width: 30%;
             }
         }
 
-        .sub-logo {
-            margin-top: fun.toRem(40px);
-            display: flex;
-            flex-flow: column nowrap;
+        .contact {
+            --icon-gap: #{fun.toRem(20px)};
+            .icon {
+                display: inline-block;
+                width: var(--icon-gap);
+                margin-right: var(--icon-gap);
 
-            .contact {
-                --icon-gap: #{fun.toRem(20px)};
-                .icon {
-                    display: inline-block;
-                    width: var(--icon-gap);
-                    margin-right: var(--icon-gap);
-
-                    img {
-                        width: 100%;
-                    }
-                }
-
-                .phone, .email {
-                    display: flex;
-
-                    &:last-child {
-                        margin-top: var(--icon-gap);
-                    }
-                }
-            }
-
-            .links {                
-                display: flex;
-                flex-flow: row wrap;
-
-                a {
-                    display: block;
-                }
-
-                .link-group {
+                img {
                     width: 100%;
-                    margin-top: fun.toRem(60px);
-
-                    .link{
-                        width: 100%;
-                        &:not(:first-child) {
-                            margin-top: fun.toRem(20px);
-                        }
-                    }
                 }
             }
 
-            .socials {
+            .phone, .email {
                 display: flex;
-                flex-flow: row nowrap;
-                justify-content: center;
-                margin: fun.toRem(48px) fun.toRem(40px) 0 0;
 
-                .social {
-                    --social-dimen: #{fun.toRem(28px)};
-                    width: var(--social-dimen);
-                    height: var(--social-dimen);
-                    border: 1px solid white;
-                    border-radius: 50%;
-                    padding: fun.toRem(6px);
-                    transition: border-color var(--transition) ease-in-out;
-                    
+                &:last-child {
+                    margin-top: var(--icon-gap);
+                }
+            }
+        }
+
+        .links {                
+            display: flex;
+            flex-flow: row wrap;
+
+            @include mixins.breakpoint-up(large) {
+                flex-grow: 1;
+                justify-content: space-evenly;
+            }
+            
+
+            a {
+                display: block;
+            }
+
+            .link-group {
+                width: 100%;
+                margin-top: fun.toRem(60px);
+
+                &:last-child {
+                    margin-top: fun.toRem(40px);
+
+                    @include mixins.breakpoint-up(large) {
+                        margin-top: 0;
+                    }
+                }
+
+                @include mixins.breakpoint-up(large) {
+                    margin-top: 0;
+                    width: 50%;
+                }
+                
+                .link{
+                    width: 100%;
                     &:not(:first-child) {
-                        margin-left: fun.toRem(10px);
+                        margin-top: fun.toRem(20px);
                     }
+                }
+            }
+        }
 
-                    svg {
-                        width: 100%;
-                        height: 100%;
-                        path{
-                            transition: fill var(--transition) ease-in-out;
-                        }
+        .socials {
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: center;
+            margin: fun.toRem(48px) fun.toRem(40px) 0 0;
+
+            @include mixins.breakpoint-up(small) {
+                margin-right: 0;
+            }
+
+            @include mixins.breakpoint-up(large) {
+                margin-top: 0;
+            }
+
+            .social {
+                // --social-dimen: #{fun.toRem(28px)};
+                --social-dimen: #{fun.toRem(32px)};
+                width: var(--social-dimen);
+                height: var(--social-dimen);
+                border: 1px solid white;
+                border-radius: 50%;
+                padding: fun.toRem(7px);
+                transition: border-color var(--transition) ease-in-out;
+                
+                &:not(:first-child) {
+                    margin-left: fun.toRem(10px);
+                }
+
+                svg {
+                    width: 100%;
+                    height: 100%;
+                    path{
+                        transition: fill var(--transition) ease-in-out;
                     }
+                }
 
-                    &:hover {
-                        border-color: colors.$bright-blue;
-                        path {
-                            fill: colors.$bright-blue;
-                        }
+                &:hover, &:focus {
+                    border-color: colors.$bright-blue;
+                    path {
+                        fill: colors.$bright-blue;
                     }
                 }
             }

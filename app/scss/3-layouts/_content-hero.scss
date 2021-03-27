@@ -1,23 +1,89 @@
 @use '../1-abstracts/functions' as fun;
 @use '../1-abstracts/colors';
+@use '../1-abstracts/mixins';
 
 .hero {
     height: fun.toRem(708px);
     display: flex;
     flex-flow: column nowrap;
-    // justify-content: center;
-    // align-items: center;
+    margin-bottom: fun.toRem(88px);
+    // max-width: fun.toRem(1218px);
+    
+
+    @include mixins.breakpoint-up(large) {
+        flex-flow: row-reverse nowrap;
+        // height: fun.toRem(280px);
+        height: fun.toRem(380px);
+        margin-bottom: fun.toRem(82px);
+    }
+
+    @include mixins.breakpoint-up(xxxlarge) {
+        margin: 0 auto;
+        margin-bottom: fun.toRem(82px);  
+    }
+
+    .illustration {
+        max-width: fun.toRem(442px);
+    
+        @include mixins.breakpoint-up(xxxxlarge) {            
+            // padding-top:fun.toRem(80px);
+            max-width: fun.toRem(512px);
+        }
+    }
 
     .cta {
+        --large-cta-width: 85%;
+        @include mixins.gap-below-illustration();
+
+        @include mixins.breakpoint-up(large) {
+            width: 55%;
+            // margin: auto 0 0;
+            margin: auto 0;
+        }
+        
 
         h1 {
-            width: 90%;
-            margin: 0 auto fun.toRem(30px);
+            width: 100%;
+            margin-bottom: fun.toRem(30px);
+
+            @include mixins.breakpoint-up(large) {
+                width: var(--large-cta-width);
+            }
         }
         
         p {
-            width: 85%;
-            margin: 0 auto fun.toRem(32px);
+            width: var(--large-cta-width);
+            margin: 0 auto;
+            margin-bottom: fun.toRem(32px);
+
+            @include mixins.breakpoint-up(large) {
+                margin-left: 0;
+            }
+        }
+
+        .subscription {
+
+            @include mixins.breakpoint-up(large) {
+                // width: var(--large-cta-width);
+                // margin: 0 auto;
+                width: 95%;
+                max-width: fun.toRem(570px);
+                justify-content: left;
+            }
+            
+            .email {
+                @include mixins.breakpoint-up(xxlarge) {
+                    width: 63%;
+                }
+            }
+
+            .btn {   
+                @include mixins.breakpoint-up(xxlarge) {
+                    width: 35%;
+                    margin-top: 0;
+                    margin-left: fun.toRem(10px);
+                }
+            }
         }
     }
 }

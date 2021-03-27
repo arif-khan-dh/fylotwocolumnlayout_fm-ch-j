@@ -1,6 +1,7 @@
 @use './1-abstracts/fonts';
 @use './1-abstracts/colors';
 @use './1-abstracts/functions' as fun;
+@use './1-abstracts/mixins';
 
 :root {
 
@@ -22,13 +23,25 @@ h1, h2, p, .btn {
     text-align: left;
 }
 
-h1, h2, p {
+h1, h2,  p, div.feature .text p {
     color: colors.$very-dark-blue;
+
+    @include mixins.breakpoint-up(large) {
+        text-align: left;
+    }
 }
 
 h1 {
     font-size: fonts.$size-xlg;
     font-weight: 700;
+
+    @include mixins.breakpoint-up(xlarge) {
+        font-size: fonts.$size-xxlg;
+    }
+
+    @include mixins.breakpoint-up(xxlarge) {
+        font-size: fonts.$size-xxxlg;
+    }
 }
 
 h2 {
@@ -40,7 +53,7 @@ a {
     color: colors.$very-dark-blue;
     transition: filter var(--transition) ease-in-out, color var(--transition) ease-in-out;
     
-    &:hover {
+    &:hover, &:focus {
         color: colors.$bright-blue;
         filter: brightness(1.4);
     }
@@ -59,39 +72,92 @@ input {
 
 .navbar {
     font-size: fonts.$size-xxsm;
+
+    @include mixins.breakpoint-up(small) {
+        font-size: fonts.$size-xsm;
+    }
 }
 
-.text {
+.hero {
 
     p {
-        color: colors.$desaturated-blue;
-        font-size: fonts.$size-xsm;
-    }
+        @include mixins.breakpoint-up(large) {
+            font-size: fonts.$size-xsm;
+        }
 
-    a {
-        color: colors.$moderate-cyan;
-        // text-decoration: ;
-        // text-underline-offset: fun.toRem(10px);
+        @include mixins.breakpoint-up(xlarge) {
+            font-size: fonts.$size-sm;
+        }
     }
 }
 
-.card p {
-    font-size: fonts.$size-xxxsm;
-    text-align: left;
-    line-height: 1.5em;
+.feature {
+    .text {
+        h2 {
+            @include mixins.breakpoint-up(small) {
+                font-size: fonts.$size-lg;
+            }
+
+            @include mixins.breakpoint-up(large) {
+                font-size: fonts.$size-lg;
+            }
+
+            @include mixins.breakpoint-up(xlarge) {
+                font-size: fonts.$size-xlg;
+            }
+            @include mixins.breakpoint-up(xxlarge) {
+                font-size: fonts.$size-xxlg;
+            }
+        }        
+
+        p {
+            color: colors.$desaturated-blue;
+            font-size: fonts.$size-xsm;
+
+            @include mixins.breakpoint-up(small) {
+                text-align: center;
+            }
+
+            @include mixins.breakpoint-up(large) {
+                font-size: fonts.$size-xxsm;
+            }
+
+            @include mixins.breakpoint-up(xlarge) {
+                font-size: fonts.$size-xsm;
+            }
+        }
+    
+        a {
+            color: colors.$moderate-cyan;
+            // text-decoration: ;
+            // text-underline-offset: fun.toRem(10px);
+        }
+    }
+    
+    .card p {
+        font-size: fonts.$size-xxxsm;
+        text-align: left;
+        line-height: 1.5em;
+
+        @include mixins.breakpoint-up(xxlarge) {
+            font-size: fonts.$size-xxsm;
+            line-height: 1.4em;
+        }
+    }
+    
+    .testimonial {
+        .name {
+            font-weight: 700;
+            font-size: fonts.$size-xsm;
+        }
+    
+        .role {
+            font-size: fonts.$size-xxsm;
+        }
+    
+    }
 }
 
-.testimonial {
-    .name {
-        font-weight: 700;
-        font-size: fonts.$size-xsm;
-    }
-
-    .role {
-        font-size: fonts.$size-xxsm;
-    }
-
-}
 
 .subscription {
     input {
@@ -117,9 +183,19 @@ input {
         color: white;
     }
 
+    h2 {
+        @include mixins.breakpoint-up(large) {
+            font-size: fonts.$size-xlg;
+        }
+    }
+
     p {
         font-size: fonts.$size-xsm;
         line-height: 1.5em;
+
+        @include mixins.breakpoint-up(large) {
+            font-size: fonts.$size-sm;
+        }
     }
 
     .error-msg {
@@ -131,10 +207,18 @@ input {
     color: white;
     font-size: fonts.$size-xsm;
 
+    .link-group {
+        // &:last-child {
+            @include mixins.breakpoint-up(small) {
+                text-align: center;
+            }
+        // }
+    }
+
     a {
         color: white;
 
-        &:hover {
+        &:hover, &:focus {
             color: colors.$bright-blue;
         }
     }

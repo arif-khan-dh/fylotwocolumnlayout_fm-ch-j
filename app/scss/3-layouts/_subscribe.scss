@@ -1,15 +1,33 @@
 @use '../1-abstracts/functions' as fun;
 @use '../1-abstracts/colors';
+@use '../1-abstracts/mixins';
+
+.subscribe-wrapper {
+    background-color:  colors.$desaturated-blue;
+    @include mixins.widen();
+}
 
 .subscribe {
-    background-color:  colors.$desaturated-blue;
     height: fun.toRem(344px);
     display: flex;
-    flex-flow: column nowrap;
+    flex-flow: row wrap;
+    justify-content: center;
+    width: fun.toRem(300px);
+    margin: 0 auto;
+
+    @include mixins.breakpoint-up(large) {
+        width: 100%;
+        justify-content: space-between;
+    }
 
     .main {
         margin-top: auto;
         margin-bottom: fun.toRem(22px);
+
+        @include mixins.breakpoint-up(large) {
+            margin: auto 0;
+            width: 48%;
+        }
 
         h2 {
             margin-bottom: fun.toRem(22px);
@@ -17,16 +35,49 @@
 
         p {
             margin: 0 auto;
-            width: fun.toRem(300px);
+            // width: fun.toRem(300px);
         }
     }
 
     .subscription {
         margin: 0 auto auto;
-        width: fun.toRem(242px);
+        // width: fun.toRem(242px);
+        // width: 64%;
+        min-width: fun.toRem(242px);
+        // max-width: fun.toRem(370px);
+        max-width: fun.toRem(600px);
+
+        @include mixins.breakpoint-up(large) {
+            margin: auto 0;
+            width: 48%;
+        }
+
+        @include mixins.breakpoint-up(xxlarge) {
+            justify-content: flex-start;
+        }
 
         .btn {
             box-shadow: none;
+           
+            @include mixins.breakpoint-up(medium) {
+                width: var(--mb-btn-input-width);
+                margin-left: 0;
+            }
+
+            @include mixins.breakpoint-up(xxlarge) {
+                width: 35%;
+            }
+        }
+
+        .email {
+            @include mixins.breakpoint-up(medium) {
+                width: var(--mb-btn-input-width);
+            }
+
+            @include mixins.breakpoint-up(xxlarge) {
+                width: 100%;
+                max-width: fun.toRem(420px);
+            }
         }
     }
 }

@@ -1,11 +1,12 @@
 @use 'typography';
 @use 'home';
-@use './2-components/logo';
 
+@use './2-components/logo';
 @use './2-components/btn';
 @use './2-components/card';
 @use './2-components/testimonial';
 @use './2-components/subscription';
+
 @use './3-layouts/navbar';
 @use './3-layouts/header';
 @use './3-layouts/content-hero';

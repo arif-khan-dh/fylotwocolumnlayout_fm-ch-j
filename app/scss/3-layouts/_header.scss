@@ -1,7 +1,14 @@
 @use '../1-abstracts/functions' as fun;
+@use '../1-abstracts/mixins';
 
 .header {
-    padding-top: fun.toRem(24px);
+    // padding: var(--padding-around-header) 0 0 var(--padding-around-header);
+    padding: var(--padding-around-header) 0 0;
     // width: 87.2%;
     display: flex;
+
+    @include mixins.breakpoint-up(large) {
+        margin-bottom: fun.toRem(48px);
+        padding-top: calc(var(--padding-around-header) * 1.5);
+    }
 }

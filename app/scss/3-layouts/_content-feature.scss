@@ -1,5 +1,22 @@
 @use '../1-abstracts/functions' as fun;
 @use '../1-abstracts/colors';
+@use '../1-abstracts/mixins';
+
+.feature-wrapper {
+    background: 
+        url(../../../images/bg-curve-mobile.svg) top left  / 100% 6% no-repeat,
+        linear-gradient(white 5%, colors.$very-light-blue 5%, colors.$very-light-blue)
+    ;
+
+    @include mixins.widen();
+
+    @include mixins.breakpoint-up(small) {
+        background: 
+            url(../../../images/bg-curve-desktop.svg) top  left  / 100% 8% no-repeat,
+            linear-gradient(white 7%, colors.$very-light-blue 7%, colors.$very-light-blue)
+        ;
+    }
+}
 
 .feature {
     height: fun.toRem(1050px);
@@ -7,38 +24,84 @@
     flex-flow: column nowrap;
     align-items: center;
 
-    background: 
-        url(../../../images/bg-curve-mobile.svg) top  10% left  / 100% 6% no-repeat,
-        // linear-gradient(white 15%, colors.$light-grayish-blue 15%, colors.$light-grayish-blue)
-        linear-gradient(white 15%, colors.$very-light-blue 15%, colors.$very-light-blue)
-    ;
+    @include mixins.breakpoint-up(large) {
+        // height: fun.toRem(620px);
+        height: fun.toRem(520px);
+        flex-flow: row-reverse nowrap;
+    }
+
+    @include mixins.breakpoint-up(xxlarge) {
+        height: fun.toRem(570px);
+    }
+
+    .illustration {
+        margin: auto;
+        max-width: fun.toRem(440px);
+
+        @include mixins.breakpoint-up(large) {
+            width: 45%;
+        }
+    }
 
     .text {
-        margin-bottom: fun.toRem(40px);
+        margin-bottom: fun.toRem(84px);
+
+        @include mixins.gap-below-illustration();
+
+        @include mixins.breakpoint-up(large) {
+            margin: auto 0;
+            width: 55%;
+            // padding: 0 fun.toRem(20px);
+        }
         
         h2 {
-            margin-bottom: fun.toRem(28px);;
+            // width: 440px;
+            // margin-bottom: fun.toRem(28px);
+            // margin: 0 fun.toRem(22px) fun.toRem(28px);
+            margin: 0 0 fun.toRem(28px);
         }
 
         p {
             margin: 0 fun.toRem(20px);
 
+            @include mixins.breakpoint-up(small) {
+                // width: fun.toRem(424px);
+                // margin: 0 fun.toRem(40px);
+                width: fun.toRem(400px);
+            }
+
+            @include mixins.breakpoint-up(large) {
+                // width: auto;
+                width: 80%;
+                margin: 0;
+            }
+
             &:nth-child(2) {
-                margin-bottom: fun.toRem(24px);
+                // margin-bottom: fun.toRem(24px);
+                margin-bottom: fun.toRem(16px);
             }
 
             &:nth-child(3) {
                 margin-bottom: fun.toRem(40px);
+
+                @include mixins.breakpoint-up(large) {
+                    margin-bottom: fun.toRem(16px);
+                }                
             }
         }
 
         .link {
             margin: 0 auto;
             text-align: center;
-            border-bottom: 1px solid colors.$moderate-cyan;
+            border-bottom: fun.toRem(1px) solid colors.$moderate-cyan;
             width: max-content;
-            padding-right: 22px;
-            padding-bottom: 5px;
+            padding-right: fun.toRem(22px);
+            padding-bottom: fun.toRem(5px);
+            margin-bottom: fun.toRem(40px);
+
+            @include mixins.breakpoint-up(large) {
+                margin: 0 0 fun.toRem(40px);
+            }
 
             a {
                 position: relative;
@@ -52,22 +115,25 @@
             }
         }
 
-        // .link {
-        //     margin: 0 auto;
-        //     text-align: center;
-        //     border-bottom: 1px solid colors.$moderate-cyan;
-        //     width: max-content;
-        //     padding-right: 22px;
-        //     padding-bottom: 5px;
-        //     position: relative;
-    
-        //     &::after {
-        //         content: url(../../../images/icon-arrow.svg);
-        //         position: absolute;
-        //         top: 20%;
-        //         right: -25px;
-        //     }
-        // }
+        .testimonial {
+            margin: 0 auto;
 
+            @include mixins.breakpoint-up(large) {
+                margin: 0;
+            }
+
+            @include mixins.breakpoint-up(xxlarge) {
+                width: calc(var(--testimonial-width) + 5%);
+            }
+
+            @include mixins.breakpoint-up(xxxxlarge) {
+                margin: auto;
+            }
+
+            p {
+                margin: auto 0 fun.toRem(12px) 0;
+                width: 100%;
+            }
+        }
     }
 }
